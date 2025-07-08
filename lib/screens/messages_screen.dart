@@ -65,27 +65,27 @@ class _MessagesScreenState extends State<MessagesScreen> {
   }
 
   Widget buildMessage(Map msg) {
-    bool isUser = msg["sender_id"] == widget.igUserId;
+    final isFromYou = msg["sender"] == "user";
 
     return Align(
-      alignment: isUser ? Alignment.centerRight : Alignment.centerLeft,
+      alignment: isFromYou ? Alignment.centerRight : Alignment.centerLeft,
       child: Container(
-        padding: EdgeInsets.all(12),
-        margin: EdgeInsets.symmetric(vertical: 6, horizontal: 12),
+        padding: const EdgeInsets.all(12),
+        margin: const EdgeInsets.symmetric(vertical: 6, horizontal: 12),
         constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.75),
         decoration: BoxDecoration(
-          color: isUser ? Colors.indigo.shade400 : Colors.grey.shade300,
+          color: isFromYou ? Colors.indigo.shade400 : Colors.grey.shade300,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(16),
             topRight: Radius.circular(16),
-            bottomLeft: isUser ? Radius.circular(16) : Radius.circular(0),
-            bottomRight: isUser ? Radius.circular(0) : Radius.circular(16),
+            bottomLeft: isFromYou ? Radius.circular(16) : Radius.circular(0),
+            bottomRight: isFromYou ? Radius.circular(0) : Radius.circular(16),
           ),
         ),
         child: Text(
           msg["text"] ?? '',
           style: TextStyle(
-            color: isUser ? Colors.white : Colors.black,
+            color: isFromYou ? Colors.white : Colors.black,
             fontSize: 15,
           ),
         ),
@@ -94,7 +94,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
   }
 
   void _sendMessage() {
-    String text = _controller.text.trim();
+    final text = _controller.text.trim();
     if (text.isEmpty) return;
 
     print("📤 Sending message: $text");
@@ -102,7 +102,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
     setState(() {
       messages.add({
         "text": text,
-        "sender_id": widget.igUserId,
+        "sender": "user",
         "timestamp": DateTime.now().toIso8601String(),
       });
     });
@@ -128,9 +128,9 @@ class _MessagesScreenState extends State<MessagesScreen> {
         children: [
           Expanded(
             child: _loading
-                ? Center(child: CircularProgressIndicator())
+                ? const Center(child: CircularProgressIndicator())
                 : messages.isEmpty
-                    ? Center(child: Text("No messages found"))
+                    ? const Center(child: Text("No messages found"))
                     : ListView.builder(
                         controller: _scrollController,
                         itemCount: messages.length,
@@ -139,9 +139,9 @@ class _MessagesScreenState extends State<MessagesScreen> {
                         },
                       ),
           ),
-          Divider(height: 1),
+          const Divider(height: 1),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
             color: Colors.white,
             child: Row(
               children: [
@@ -156,13 +156,13 @@ class _MessagesScreenState extends State<MessagesScreen> {
                         borderRadius: BorderRadius.circular(24),
                         borderSide: BorderSide.none,
                       ),
-                      contentPadding: EdgeInsets.symmetric(horizontal: 16),
+                      contentPadding: const EdgeInsets.symmetric(horizontal: 16),
                     ),
                   ),
                 ),
-                SizedBox(width: 8),
+                const SizedBox(width: 8),
                 IconButton(
-                  icon: Icon(Icons.send, color: Colors.indigo),
+                  icon: const Icon(Icons.send, color: Colors.indigo),
                   onPressed: _sendMessage,
                 ),
               ],
