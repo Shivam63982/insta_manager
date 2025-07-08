@@ -1,18 +1,20 @@
-// main.dart
 import 'package:flutter/material.dart';
 import 'screens/login_screen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(InstagramAppManager());
 }
 
-class MyApp extends StatelessWidget {
+class InstagramAppManager extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'Instagram App Manager',
+      theme: ThemeData(
+        primarySwatch: Colors.deepPurple,
+        scaffoldBackgroundColor: Colors.white,
+      ),
       debugShowCheckedModeBanner: false,
-      title: 'Instagram Manager Login',
-      theme: ThemeData(primarySwatch: Colors.indigo),
       home: LoginScreen(),
     );
   }
