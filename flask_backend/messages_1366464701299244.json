@@ -1,0 +1,57 @@
+[
+    {
+        "timestamp": "2025-06-26T12:08:27+0000",
+        "sender": "bot",
+        "text": "Hii"
+    },
+    {
+        "timestamp": "2025-06-26T12:08:37+0000",
+        "sender": "user",
+        "text": "I'm here to help."
+    },
+    {
+        "timestamp": "2025-06-26T12:09:04+0000",
+        "sender": "bot",
+        "text": "What are you doing"
+    },
+    {
+        "timestamp": "2025-06-26T12:16:23+0000",
+        "sender": "bot",
+        "text": "Hsus"
+    },
+    {
+        "timestamp": "2025-06-26T12:16:38+0000",
+        "sender": "user",
+        "text": "Can you tell me more?"
+    },
+    {
+        "timestamp": "2025-06-26T12:16:44+0000",
+        "sender": "bot",
+        "text": "Hello sir"
+    },
+    {
+        "timestamp": "2025-06-26T12:25:26+0000",
+        "sender": "user",
+        "text": "hello"
+    },
+    {
+        "timestamp": "2025-06-26T12:25:32+0000",
+        "sender": "bot",
+        "text": "Hello"
+    },
+    {
+        "timestamp": "2025-06-26T12:42:26+0000",
+        "sender": "bot",
+        "text": "Hello"
+    },
+    {
+        "timestamp": "2025-06-26T12:43:26+0000",
+        "sender": "bot",
+        "text": "Hello"
+    },
+    {
+        "timestamp": "2025-06-27T15:44:53+0000",
+        "sender": "bot",
+        "text": ""
+    }
+]
